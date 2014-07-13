@@ -8,12 +8,18 @@ Requires at least: 3.0
 Tested up to: 3.0
 Stable tag: 1.0
 
-WordPress Plugin to show profile edit backend on post or page with shortcode
+Wordpress plugin to add profile edit to your frontend with shortcode
 
 == Description ==
 
-Show profile edit backend on post or page through shortcode, without coding or hacks. Great for membership site.
+Wordpress plugin to add profile edit to your frontend through shortcode, without coding or hacks. Great for membership site.
 
+This plugin need your contributes, fork this from 
+https://github.com/dulabs/frontend-edit-profile
+
+WARNING!
+not all plugins compatible, see our whitelist 
+http://dulabs.com/frontend-edit-profile-for-wordpress/
 
 == Installation ==
 
@@ -25,6 +31,13 @@ insert [LOGIN] or [EDITPROFILE] to your post or page.
 
 You ready to go!
 
+using widget:
+
+You need to configure login and register url in setting page.
+
+login url: Your post/page with shortcode
+register url: this is custom register url
+
 == Screenshot ==
 
 1. General Settings
@@ -32,12 +45,11 @@ You ready to go!
 
 == Changelog ==
 
-= Version 1.0.2 =
-* Fixed bug on [http://wordpress.org/support/topic/481466]
-* Feature: login form
+= Version 1.0.3 =
+* Feature: Widget login form
 * Feature: Custom login url, logout url, lostpassword url, and password  hint
-* Feature: Disable Contact Method(s)
-[Updated Jul 13, 2010]
+* Fixed: remove plugin password strength meter and change to wordpress default password strength meter
+[Updated Jul 13, 2014]
 
 
 = Version 1.0.2 =
