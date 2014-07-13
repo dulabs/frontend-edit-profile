@@ -1,4 +1,3 @@
-
 <?php
 class fep_widget extends WP_Widget {
 
