@@ -6,10 +6,12 @@ Wordpress plugin to add profile edit to your frontend with shortcode
 for more information 
 http://wordpress.org/plugins/frontend-edit-profile/
 
-Available Language
+Available Languages
 
-German by Fabian Kromer
-Italian by Anja
+- German by Fabian Kromer
 
-Need help to translate this plugin,
+- Italian by Anja
+
+
+We need help to translate this plugin for community,
 send your translate to dev@dulabs.com
