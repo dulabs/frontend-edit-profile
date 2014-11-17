@@ -141,7 +141,7 @@
 				<th><label for="pass1"><?php _e('New Password','fep'); ?></label><br /><span class="description"><small><?php _e("If you would like to change the password type a new one. Otherwise leave this blank.",'fep'); ?></small></span></th>
 				<td>
 					<input type="password" name="pass1" id="pass1" size="16" value="" autocomplete="off" /><br /><br />
-					<input type="password" name="pass2" id="pass2" size="16" value="" autocomplete="off" />&nbsp;<em><span class="description"><?php _e("Type your new password again."); ?></span></em>
+					<input type="password" name="pass2" id="pass2" size="16" value="" autocomplete="off" />&nbsp;<em><span class="description"><?php _e("Type your new password again.","fep"); ?></span></em>
 					
 					<?php if($show_pass_indicator):?>
 					

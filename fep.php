@@ -226,12 +226,14 @@ class FRONTEND_EDIT_PROFILE{
 		include_once ( realpath ( dirname(__FILE__) )."/admin_form.php" );
 	}
 	
+	/* Add Styles to Admin*/
 	function admin_style(){
-					/* Add Styles to Admin*/
+
 	}
 	
+	/* Add Scripts to Admin*/
 	function admin_script(){
-			/* Add Scripts to Admin*/
+			
 	}
 	
 	function form_style() {
@@ -258,6 +260,7 @@ class FRONTEND_EDIT_PROFILE{
 		$src = $plugin_url.'/fep.js';
 	
 		wp_enqueue_script( 'password-strength-meter' );
+		
 		wp_enqueue_script('fep-forms-script',$src,'','1.0');
 	}
 	
@@ -300,7 +303,7 @@ class FRONTEND_EDIT_PROFILE{
 			$message = $errors->get_error_message();
 			$style = "error";
 		}else{
-			$message = __("<strong>Success</strong>: Profile updated");
+			$message = __("<strong>Success</strong>: Profile updated","fep");
 			$style = "success";
 		}
 			$output  = "<div id=\"fep-message\" class=\"fep-message-".$style."\">".$message.'</div>';
