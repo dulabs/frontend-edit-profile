@@ -58,6 +58,7 @@ class FRONTEND_EDIT_PROFILE{
 		add_filter('fep_contact_methods', array($this,'contact_methods'));
 		add_filter('logout_url', array($this,'logout_url'));
 		add_filter('login_url', array($this,'login_url'));
+		add_filter('register_url', array($this,'registration_url'));
 		add_filter('lostpassword_url', array($this,'lostpassword_url'));
 		add_filter('user_contactmethods', array($this,'add_contact_methods'));
 		// Additing Action hook widgets_init
@@ -178,7 +179,7 @@ class FRONTEND_EDIT_PROFILE{
 		return $url;
 	}
 	
-	function register_url( $url ){
+	function registration_url( $url ){
 		$fep_url = get_option('fep_registerurl');
 		$fep_registerpage = get_option('fep_registerpage');
 
@@ -457,16 +458,18 @@ class FRONTEND_EDIT_PROFILE{
 		include_once( realpath ( dirname(__FILE__) ). "/login_form.php" );
 	}
 	
-	function basic_form( $atts ){
-		
-		$text = get_option("fep_notlogin");
-		$show_loginform = (get_option('fep_loginform') == "on")? true : false;	
+	function access_denied()
+	{
+			$text = get_option("fep_notlogin");
+			$show_loginform = (get_option('fep_loginform') == "on")? true : false;	
 			
-		if( !(is_user_logged_in()) ){
-			
+
 			$login_url = wp_login_url();
 			$lostpassword_url = wp_lostpassword_url();
+			$register_url = wp_registration_url();
+
 			$text = str_replace("%LOGIN_URL%",$login_url,$text);
+			$text = str_replace("%REGISTER_URL%",$register_url,$text);
 			$text = str_replace("%LOSTPASSWORD_URL%",$lostpassword_url,$text);
 			
 			_e($text);
@@ -475,6 +478,14 @@ class FRONTEND_EDIT_PROFILE{
 				echo "<br /><br />";
 				do_action('fep_loginform');
 			}
+			return;
+	}
+
+	function basic_form( $atts ){
+		
+
+		if( !(is_user_logged_in()) ){
+			$this->access_denied();
 			return;
 		}
 		
@@ -490,7 +501,7 @@ class FRONTEND_EDIT_PROFILE{
 
 			$profilepage = get_option('fep_profilepage');
 			$redirect = get_permalink($profilepage);
-			echo sprintf("You already logged in. To see your profile, go to %s","<a href=\"$redirect\">$redirect</a>");
+			echo sprintf(__("You already logged in. To see your profile, go to %s"),"<a href=\"$redirect\">$redirect</a>");
 		}
 		
 
@@ -505,6 +516,8 @@ class FRONTEND_EDIT_PROFILE{
 		
 		if(is_user_logged_in()){
 			return self::build_form();
+		}else{
+			$this->access_denied();
 		}
 	}
 	

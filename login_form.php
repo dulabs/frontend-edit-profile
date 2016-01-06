@@ -11,6 +11,6 @@
 		    <p><input type="submit" name="submit" value="<?php _e('Logged me in','fep');?>" class="button" /></p>
 			
 		    <?php if($register == "on"): ?>
-		    <p><a href="<?php echo esc_attr(get_option('fep_registerurl'));?>"><?php _e("Don't have account? Register.",'fep');?></a></p>
+		    <p><a href="<?php echo wp_registration_url();?>"><?php _e("Don't have account? Register.",'fep');?></a></p>
 		    <?php endif; ?>
 		</form>
