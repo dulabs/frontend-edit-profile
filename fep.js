@@ -1,3 +1,5 @@
+(function($){
+
 
 function checkPasswordStrength( $pass1,
                                 $pass2,
@@ -9,7 +11,7 @@ function checkPasswordStrength( $pass1,
  
     // Reset the form & meter
     
-        $strengthResult.removeClass( 'short bad good strong' );
+    $strengthResult.removeClass( 'short bad good strong' );
  
     // Extend our blacklist array with those from the inputs & site data
     blacklistArray = blacklistArray.concat( wp.passwordStrength.userInputBlacklist() )
@@ -50,7 +52,7 @@ function checkPasswordStrength( $pass1,
  
 jQuery( document ).ready( function( $ ) {
     // Binding to trigger checkPasswordStrength
-    $( 'body' ).on( 'keyup', 'input[name=pass1], input[name=pass2]',
+    $( 'body' ).on( 'keyup', 'input[name=pass2]',
         function( event ) {
             checkPasswordStrength(
                 $('input[name=pass1]'),         // First password field
@@ -62,3 +64,5 @@ jQuery( document ).ready( function( $ ) {
         }
     );
 });
+
+})(jQuery);

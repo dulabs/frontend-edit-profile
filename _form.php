@@ -97,7 +97,8 @@
 				$contact_methods = array();
 				
 				$contact_methods = apply_filters("fep_contact_methods",$contact_methods);
-					if(!(is_array($contact_methods))){
+				
+				if(!(is_array($contact_methods))){
                                             $contact_methods = array();
                                          }
 				foreach (_wp_get_user_contactmethods() as $name => $desc) {

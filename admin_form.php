@@ -4,10 +4,16 @@
 			<h3><?php _e("General Settings",'fep');?></h3>
 			<form action="options.php" method="post">
 			 <?php settings_fields('fep_options'); ?>
-			<table class="fixed">
+			<table class="form-table">
 				<tr>
-					<th scope="row"><label for="fep_biographical"><?php _e("Show Biographical Info",'fep');?></label></th>
-					<td><input type="checkbox" value="on" id="fep_biographical" name="fep_biographical"<?php echo $biographical;?>/></td>
+					<th scope="row">
+						<label for="fep_biographical">
+							<?php _e("Show Biographical Info",'fep');?>
+						</label>
+					</th>
+					<td>
+						<input type="checkbox" value="on" id="fep_biographical" name="fep_biographical"<?php echo $biographical;?>/>
+					</td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="pass_indicator"><?php _e("Show Password Indicator",'fep');?></label></th>
@@ -18,23 +24,27 @@
 					<td><input type="checkbox" value="on" id="pass_hint" name="fep_pass_hint"<?php echo $pass_hint;?>/></td>
 				</tr>
 				<tr>
-					<th scope="row" valign="top"><label for="custom_pass_hint"><?php _e("Custom Password Hint",'fep');?></label></th>
+					<th ><label for="custom_pass_hint"><?php _e("Custom Password Hint",'fep');?></label></th>
 					<td valign="top">
 						<input type="checkbox" value="on" id="fep_custom_pass_hint" name="fep_custom_pass_hint"<?php echo $custom_pass_hint;?>/>
-					
-							
-						<br />	
-						<textarea name="fep_text_pass_hint" id="fep_text_pass_hint" rows="5" cols="40"><?php echo get_option('fep_text_pass_hint')?></textarea>
-					
 					</td>
+				</tr>
+				<tr>
+					<th scope="row" valign="top"><label for="pass_hint"><?php _e("Password Hint",'fep');?></label></th>
+					<td valign="top">
+						<textarea name="fep_text_pass_hint" id="fep_text_pass_hint" rows="5" cols="40"><?php echo get_option('fep_text_pass_hint')?></textarea>				
+					</td>
+				</tr>
+			</table>
+			<h3 class="title"><?php _e("Login Page","fep");?></h3>
+			<table class="form-table">
+				<tr>
+					<th scope="row" valign="top"><label for="fep_notlogin"><?php _e("Not Logged in Text",'fep');?></label></th>
+					<td valign="top"><textarea id="fep_notlogin" name="fep_notlogin" rows="5" cols="40"><?php echo get_option('fep_notlogin');?></textarea></td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="login_form"><?php _e("Show Login Form",'fep');?></label></th>
 					<td><input type="checkbox" value="on" id="login_form" name="fep_loginform"<?php echo $login_form;?>/></td>
-				</tr>
-				<tr>
-					<th scope="row" valign="top"><label for="fep_notlogin"><?php _e("Not Logged in Text",'fep');?></label></th>
-					<td valign="top"><textarea id="fep_notlogin" name="fep_notlogin" rows="5" cols="40"><?php echo get_option('fep_notlogin');?></textarea></td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="fep_loginurl"><?php _e("Login URL",'fep');?></label></th>
@@ -54,7 +64,7 @@
 				</tr>
 			</table>
 			
-			<h3><?php _e("Disable Contact Methods",'fep');?></h3>
+			<h3 class="title"><?php _e("Disable Contact Methods",'fep');?></h3>
 			<em><?php _e("Click to disable contact methods in profile page",'fep');?></em>
 		
 			<table class="widefat fixed">
@@ -69,7 +79,7 @@
 				?>
 				<tr>
 					<th scope="row"><label for="fep_contactmethod_<?php echo $name; ?>"><?php echo apply_filters('user_'.$name.'_label', $desc); ?></label></th>
-					<td><input type="checkbox" name="fep_contact_methods[]" id="fep_contactmethod_<?php echo $name; ?>" value="<?php echo $name;?>" class="regular-text"<?php echo $checked;?> /></td>
+					<td><input type="checkbox" name="fep_contact_methods[]" id="fep_contactmethod_<?php echo $name; ?>" value="<?php echo $name;?>" <?php echo $checked;?> /></td>
 				</tr>
 				<?php
 					}	
