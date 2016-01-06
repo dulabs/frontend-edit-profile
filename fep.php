@@ -16,7 +16,7 @@ if(version_compare($wp_version, "2.8", "<")) { exit($exit_msg); }
 
 define ('FEP','frontend-edit-profile');
 
-define('FEP_VERSION', '1.0.2');
+define('FEP_VERSION', '1.0.3');
 
 define("FEP_URL", WP_PLUGIN_URL . '/frontend-edit-profile/' );
 
@@ -38,10 +38,15 @@ class FRONTEND_EDIT_PROFILE{
 		
 		register_activation_hook(__FILE__, array($this,'default_settings'));
 		add_action('admin_init', array($this,'settings_init'));
+
+		add_shortcode('LOGIN_FORM',array($this,'shortcode'));
+		add_shortcode('PROFILE_FORM',array($this,'profile_form'));
+
+		// Will remove later
+		add_shortcode('LOGIN',array($this,'shortcode'));
 		add_shortcode('editprofile',array($this,'shortcode'));
 		add_shortcode('EDITPROFILE',array($this,'shortcode'));
-		add_shortcode('LOGIN',array($this,'shortcode'));
-
+		
 		add_action('plugins_loaded', array($this,'localization_init'));	
 		add_action('widgets_init', array($this,'_widget')); 
 		add_action('admin_menu',array($this,'admin_menu'));	
@@ -105,7 +110,12 @@ class FRONTEND_EDIT_PROFILE{
 		add_option('fep_loginform','off','','yes');
 		add_option('fep_logouturl',$logout_url,'','yes');
 		add_option('fep_loginurl','','','yes');
+		add_option('fep_loginpage','','','yes');
 		add_option('fep_lostpasswordurl','','','yes');
+		add_option('fep_lostpasswordpage','','','yes');
+		add_option('fep_registerurl','','','yes');
+		add_option('fep_registerpage','','','yes');
+		add_option('fep_profilepage','','','yes');
 	}
 	
 	function settings_init(){
@@ -119,8 +129,12 @@ class FRONTEND_EDIT_PROFILE{
 		register_setting('fep_options','fep_loginform','');
 		register_setting('fep_options','fep_logouturl','');
 		register_setting('fep_options','fep_loginurl','');
+		register_setting('fep_options','fep_loginpage','');
 		register_setting('fep_options','fep_lostpasswordurl','');
+		register_setting('fep_options','fep_lostpasswordpage','');
 		register_setting('fep_options','fep_registerurl','');
+		register_setting('fep_options','fep_registerpage','');
+		register_setting('fep_options','fep_profilepage','');
 	}
 	
 	function add_contact_methods()
@@ -135,10 +149,17 @@ class FRONTEND_EDIT_PROFILE{
 
 	function login_url( $url ){
 		$fep_url = get_option('fep_loginurl');
-		
+		$fep_loginpage = get_option('fep_loginpage');
+
+		if(!empty($fep_loginpage)){
+			$url = get_permalink($fep_loginpage);
+		}
+
 		if(!empty($fep_url)){
 			$url = $fep_url;
 		}
+
+
 		
 		return $url;
 	}
@@ -149,6 +170,7 @@ class FRONTEND_EDIT_PROFILE{
 		
 		$fep_url = get_option('fep_logouturl');
 		
+
 		if(!empty($fep_url)){
 			$url = $fep_url;
 		}
@@ -156,9 +178,29 @@ class FRONTEND_EDIT_PROFILE{
 		return $url;
 	}
 	
+	function register_url( $url ){
+		$fep_url = get_option('fep_registerurl');
+		$fep_registerpage = get_option('fep_registerpage');
+
+		if(!empty($fep_registerpage)){
+			$url = get_permalink($fep_registerpage);
+		}
+
+		if(!empty($fep_url)){
+			$url = $fep_url;
+		}
+		
+		return $url;
+	}
+
 	function lostpassword_url( $url ){
 		$fep_url = get_option('fep_lostpasswordurl');
-		
+		$fep_lostpasswordpage = get_option('fep_lostpasswordpage');
+
+		if(!empty($fep_lostpasswordpage)){
+			$url = get_permalink($fep_lostpasswordpage);
+		}
+
 		if(!empty($fep_url)){
 			$url = $fep_url;
 		}
@@ -217,12 +259,17 @@ class FRONTEND_EDIT_PROFILE{
 		
 		$login_form = (get_option('fep_loginform')=="on") ? " checked=\"checked\"" : " ";
 	
+		$loginpage = get_option('fep_loginpage');
+
 		$contact_methods = get_option("fep_contact_methods");
 		
 		if(!(is_array($contact_methods))){
 			$contact_methods = array();
 		}
 		
+		$pages = get_pages(['post_type' => 'page',
+							'post_status' => 'publish']);
+
 		include_once ( realpath ( dirname(__FILE__) )."/admin_form.php" );
 	}
 	
@@ -303,7 +350,7 @@ class FRONTEND_EDIT_PROFILE{
 			$message = $errors->get_error_message();
 			$style = "error";
 		}else{
-			$message = __("<strong>Success</strong>: Profile updated","fep");
+			$message = __("Profile updated","fep");
 			$style = "success";
 		}
 			$output  = "<div id=\"fep-message\" class=\"fep-message-".$style."\">".$message.'</div>';
@@ -423,6 +470,7 @@ class FRONTEND_EDIT_PROFILE{
 			$text = str_replace("%LOSTPASSWORD_URL%",$lostpassword_url,$text);
 			
 			_e($text);
+
 			if($show_loginform){
 				echo "<br /><br />";
 				do_action('fep_loginform');
@@ -434,9 +482,15 @@ class FRONTEND_EDIT_PROFILE{
 			$output = self::process_form($atts);	
 			return $output;
 		} else {
-			$data = array();
-			$form = self::build_form( $data );
-			return $form;		
+
+			//see profile form
+			#$data = array();
+			#$form = self::build_form( $data );
+			#return $form;		
+
+			$profilepage = get_option('fep_profilepage');
+			$redirect = get_permalink($profilepage);
+			echo sprintf("You already logged in. To see your profile, go to %s","<a href=\"$redirect\">$redirect</a>");
 		}
 		
 
@@ -445,6 +499,13 @@ class FRONTEND_EDIT_PROFILE{
 	function shortcode( $atts ){
 		$function = self::basic_form( $atts );
 		return $function;
+	}
+
+	function profile_form( $atts ){
+		
+		if(is_user_logged_in()){
+			return self::build_form();
+		}
 	}
 	
 }
