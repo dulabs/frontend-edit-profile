@@ -53,38 +53,62 @@ class FRONTEND_EDIT_PROFILE{
 		add_action('wp_print_styles',array($this,'form_style'));
 		add_action('wp_print_scripts', array($this,'form_script'));
 		add_action('init',array($this,'process_login_form'));	
-		add_action('fep_loginform', array($this,'login_form'));
 		
+		// fep action form
+		add_action('fep_loginform', array($this,'login_form'));
+		add_action('fep_loggedinform', array($this,'loggedin_form'));
+
+		// filters 
 		add_filter('fep_contact_methods', array($this,'contact_methods'));
 		add_filter('logout_url', array($this,'logout_url'));
 		add_filter('login_url', array($this,'login_url'));
 		add_filter('register_url', array($this,'registration_url'));
 		add_filter('lostpassword_url', array($this,'lostpassword_url'));
 		add_filter('user_contactmethods', array($this,'add_contact_methods'));
-		// Additing Action hook widgets_init
 		
-
-
 	}
 
+
+	// localization
 	function localization_init() {
 	    $path = dirname(plugin_basename(__FILE__)) . '/languages/';
 	    load_plugin_textdomain( 'fep', false, $path );
 	}
 
+
+	// register widget
 	function _widget() {
 		register_widget( 'fep_widget' );
 	}
 
+
+	// get plugin current url
 	function plugin_url(){
 		$currentpath = dirname(__FILE__);
 		$siteurl = get_option('siteurl').'/';
 		$plugin_url = str_replace(ABSPATH,$siteurl,$currentpath);
-		
+
 		return $plugin_url;
+	}
+
+	//
+	// http://www.webcheatsheet.com/PHP/get_current_page_url.php
+	//
+	
+	function curPageURL() {
+	 $pageURL = 'http';
+	 if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+	 $pageURL .= "://";
+	 if ($_SERVER["SERVER_PORT"] != "80") {
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	 } else {
+	  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	 }
+	 return $pageURL;
 	}
 	
 	
+	// Add menu to admin
 	function admin_menu(){
 		$mypage = add_options_page('Frontend Edit Profile','Frontend Edit Profile','administrator','fep',array($this,'options_page'));
 		
@@ -92,6 +116,7 @@ class FRONTEND_EDIT_PROFILE{
 		add_action('admin_print_scripts-'.$mypage,array($this,'admin_script'));
 	}
 	
+	// default settings
 	function default_settings(){
 		
 		$siteurl = get_option('siteurl');
@@ -119,6 +144,7 @@ class FRONTEND_EDIT_PROFILE{
 		add_option('fep_profilepage','','','yes');
 	}
 	
+	// initialize settings
 	function settings_init(){
 		register_setting('fep_options','fep_pass_hint','');
 		register_setting('fep_options','fep_custom_pass_hint','');
@@ -138,6 +164,7 @@ class FRONTEND_EDIT_PROFILE{
 		register_setting('fep_options','fep_profilepage','');
 	}
 	
+	// add contact methods
 	function add_contact_methods()
 	{
 		$user_contact['skype'] = __( 'Skype' ); 
@@ -148,6 +175,7 @@ class FRONTEND_EDIT_PROFILE{
 		return $user_contact;
 	}
 
+	// filter login url
 	function login_url( $url ){
 		$fep_url = get_option('fep_loginurl');
 		$fep_loginpage = get_option('fep_loginpage');
@@ -165,6 +193,7 @@ class FRONTEND_EDIT_PROFILE{
 		return $url;
 	}
 	
+	// filter logout url
 	function logout_url( $url ){
 		
 		if(is_admin()) return $url;
@@ -179,6 +208,7 @@ class FRONTEND_EDIT_PROFILE{
 		return $url;
 	}
 	
+	// filter registration url
 	function registration_url( $url ){
 		$fep_url = get_option('fep_registerurl');
 		$fep_registerpage = get_option('fep_registerpage');
@@ -194,6 +224,7 @@ class FRONTEND_EDIT_PROFILE{
 		return $url;
 	}
 
+	// filter lost password url
 	function lostpassword_url( $url ){
 		$fep_url = get_option('fep_lostpasswordurl');
 		$fep_lostpasswordpage = get_option('fep_lostpasswordpage');
@@ -209,6 +240,7 @@ class FRONTEND_EDIT_PROFILE{
 		return $url;
 	}
 	
+	// filter contact methods
 	function contact_methods(){
 		
 		$contact_methods = _wp_get_user_contactmethods();
@@ -230,22 +262,7 @@ class FRONTEND_EDIT_PROFILE{
 		return $new_contact_methods;
 	}
 	
-	//
-	// http://www.webcheatsheet.com/PHP/get_current_page_url.php
-	//
-	
-	function curPageURL() {
-	 $pageURL = 'http';
-	 if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-	 $pageURL .= "://";
-	 if ($_SERVER["SERVER_PORT"] != "80") {
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-	 } else {
-	  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-	 }
-	 return $pageURL;
-	}
-	
+	// admin options page
 	function options_page(){
 		
 		$pass_hint = (get_option('fep_pass_hint')=="on")? " checked=\"checked\"" : " ";
@@ -284,6 +301,8 @@ class FRONTEND_EDIT_PROFILE{
 			
 	}
 	
+
+	// current form style
 	function form_style() {
 
 		$style = get_option('fep_style');
@@ -301,6 +320,7 @@ class FRONTEND_EDIT_PROFILE{
 	
 	}
 	
+	// form script
 	function form_script(){
 		
 		$plugin_url = self::plugin_url();
@@ -312,6 +332,8 @@ class FRONTEND_EDIT_PROFILE{
 		wp_enqueue_script('fep-forms-script',$src,'','1.0');
 	}
 	
+
+	// update process
 	function process_form( $atts ){
 		
 		global $wpdb;
@@ -360,6 +382,7 @@ class FRONTEND_EDIT_PROFILE{
 			return $output; 
 	}
 	
+	// build profile form
 	function build_form( $data="" ){
 		
 		$current_user = wp_get_current_user();
@@ -382,6 +405,7 @@ class FRONTEND_EDIT_PROFILE{
 		return $form;
 	}
 	
+	// login process
 	function process_login_form(){
 		
 		if(isset($_GET['action'])){
@@ -447,6 +471,7 @@ class FRONTEND_EDIT_PROFILE{
 	
 	}
 	
+	// build login form
 	function login_form( $url="" ){
 		
 		$wp_error = $this->wp_error;
@@ -458,6 +483,7 @@ class FRONTEND_EDIT_PROFILE{
 		include_once( realpath ( dirname(__FILE__) ). "/login_form.php" );
 	}
 	
+	// access warning
 	function access_denied()
 	{
 			$text = get_option("fep_notlogin");
@@ -481,17 +507,15 @@ class FRONTEND_EDIT_PROFILE{
 			return;
 	}
 
+	// login action
 	function basic_form( $atts ){
 		
-
-		if( !(is_user_logged_in()) ){
-			$this->access_denied();
-			return;
-		}
 		
 		if(isset($_POST['user_id'])) {
+
 			$output = self::process_form($atts);	
 			return $output;
+
 		} else {
 
 			//see profile form
@@ -499,19 +523,23 @@ class FRONTEND_EDIT_PROFILE{
 			#$form = self::build_form( $data );
 			#return $form;		
 
-			$profilepage = get_option('fep_profilepage');
-			$redirect = get_permalink($profilepage);
-			echo sprintf(__("You already logged in. To see your profile, go to %s"),"<a href=\"$redirect\">$redirect</a>");
+			if(is_user_logged_in()){
+				do_action('fep_loggedinform');
+			}else{
+				do_action('fep_loginform');
+			}
 		}
 		
 
 	}
 	
+	// login shortcode
 	function shortcode( $atts ){
 		$function = self::basic_form( $atts );
 		return $function;
 	}
 
+	// profile shortcode
 	function profile_form( $atts ){
 		
 		if(is_user_logged_in()){
