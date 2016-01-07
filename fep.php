@@ -483,6 +483,11 @@ class FRONTEND_EDIT_PROFILE{
 		include_once( realpath ( dirname(__FILE__) ). "/login_form.php" );
 	}
 	
+	function loggedin_form()
+	{
+		include_once( realpath ( dirname(__FILE__) ). "/loggedin_form.php" );
+	}
+	
 	// access warning
 	function access_denied()
 	{
