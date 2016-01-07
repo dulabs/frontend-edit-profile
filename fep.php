@@ -16,7 +16,7 @@ if(version_compare($wp_version, "2.8", "<")) { exit($exit_msg); }
 
 define ('FEP','frontend-edit-profile');
 
-define('FEP_VERSION', '1.0.3');
+define('FEP_VERSION', '1.0.5');
 
 define("FEP_URL", WP_PLUGIN_URL . '/frontend-edit-profile/' );
 
@@ -39,13 +39,13 @@ class FRONTEND_EDIT_PROFILE{
 		register_activation_hook(__FILE__, array($this,'default_settings'));
 		add_action('admin_init', array($this,'settings_init'));
 
-		add_shortcode('LOGIN_FORM',array($this,'shortcode'));
-		add_shortcode('PROFILE_FORM',array($this,'profile_form'));
+		add_shortcode('LOGIN_FORM',array($this,'login_shortcode'));
+		add_shortcode('PROFILE_FORM',array($this,'profile_shortcode'));
 
 		// Will remove later
-		add_shortcode('LOGIN',array($this,'shortcode'));
-		add_shortcode('editprofile',array($this,'shortcode'));
-		add_shortcode('EDITPROFILE',array($this,'shortcode'));
+		add_shortcode('LOGIN',array($this,'login_shortcode'));
+		add_shortcode('editprofile',array($this,'profile_shortcode'));
+		add_shortcode('EDITPROFILE',array($this,'profile_shortcode'));
 		
 		add_action('plugins_loaded', array($this,'localization_init'));	
 		add_action('widgets_init', array($this,'_widget')); 
