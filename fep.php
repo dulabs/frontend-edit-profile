@@ -534,13 +534,13 @@ class FRONTEND_EDIT_PROFILE{
 	}
 	
 	// login shortcode
-	function login_form_shortcode( $atts ){
+	function login_shortcode( $atts ){
 		$function = self::basic_form( $atts );
 		return $function;
 	}
 
 	// profile shortcode
-	function profile_form( $atts ){
+	function profile_shortcode( $atts ){
 		
 		if(is_user_logged_in()){
 			return self::build_form();
