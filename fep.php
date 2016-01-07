@@ -334,7 +334,7 @@ class FRONTEND_EDIT_PROFILE{
 	
 
 	// update process
-	function process_form( $atts ){
+	function update_process_form( $atts ){
 		
 		global $wpdb;
 		
