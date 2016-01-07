@@ -534,7 +534,7 @@ class FRONTEND_EDIT_PROFILE{
 	}
 	
 	// login shortcode
-	function shortcode( $atts ){
+	function login_form_shortcode( $atts ){
 		$function = self::basic_form( $atts );
 		return $function;
 	}
