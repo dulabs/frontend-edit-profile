@@ -515,13 +515,6 @@ class FRONTEND_EDIT_PROFILE{
 	// login action
 	function basic_form( $atts ){
 		
-		
-		if(isset($_POST['user_id'])) {
-
-			$output = self::process_form($atts);	
-			return $output;
-
-		} else {
 
 			//see profile form
 			#$data = array();
@@ -532,9 +525,7 @@ class FRONTEND_EDIT_PROFILE{
 				do_action('fep_loggedinform');
 			}else{
 				do_action('fep_loginform');
-			}
-		}
-		
+			}		
 
 	}
 	
@@ -548,7 +539,12 @@ class FRONTEND_EDIT_PROFILE{
 	function profile_shortcode( $atts ){
 		
 		if(is_user_logged_in()){
-			return self::build_form();
+			if(isset($_POST['user_id'])) {
+				$output = self::update_process_form($atts);	
+				return $output;
+			} else {
+				return self::build_form();
+			}
 		}else{
 			$this->access_denied();
 		}
