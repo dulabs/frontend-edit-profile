@@ -8,7 +8,7 @@
 		       <label for="rememberme"><input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever" /> <?php _e('Remember me','fep');?></label>
 		       <input type="hidden" name="redirect_to" value="<?php echo $_SERVER['REQUEST_URI']; ?>" />
 		    </p>
-		    <p><input type="submit" name="submit" value="<?php _e('Logged me in','fep');?>" class="button" /></p>
+		    <p><input type="submit" name="submit" value="<?php _e('Login','fep');?>" class="button" /></p>
 			
 		    <?php if($register == "on"): ?>
 		    <p><a href="<?php echo wp_registration_url();?>"><?php _e("Don't have account? Register.",'fep');?></a></p>
