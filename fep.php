@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Frontend Edit Profile
-Version: 1.0.3
+Version: 1.0.5
 Description: Add edit profile to your post or page
 Author: Abdul Ibad
-Author URI: http://www.dulabs.com
-Plugin URI: http://www.dulabs.com/wp-frontend-edit-profile
+Author URI: http://ibad.dulabs.com
+Plugin URI: http://fep.dulabs.com/
 License: GPL
 */
 
@@ -285,8 +285,8 @@ class FRONTEND_EDIT_PROFILE{
 			$contact_methods = array();
 		}
 		
-		$pages = get_pages(['post_type' => 'page',
-							'post_status' => 'publish']);
+		$pages = get_pages(array('post_type' => 'page',
+							'post_status' => 'publish'));
 
 		include_once ( realpath ( dirname(__FILE__) )."/admin_form.php" );
 	}

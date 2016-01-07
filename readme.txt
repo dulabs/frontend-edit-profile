@@ -14,6 +14,9 @@ Wordpress plugin to add profile information to your frontend with shortcode, no 
 
 Wordpress plugin to add profile information to your frontend through shortcode, without coding or hacks. Great for membership site.
 
+Since Version 1.0.5
+You need to separate between login and profile page, See installation.
+
 Check plugin development through github 
 
 https://github.com/dulabs/frontend-edit-profile
