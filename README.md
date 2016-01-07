@@ -1,7 +1,7 @@
 frontend-edit-profile
 =====================
 
-Wordpress plugin to add profile edit to your frontend with shortcode
+Wordpress plugin to add profile information to your frontend with shortcode, no coding required.
 
 for more information 
 http://wordpress.org/plugins/frontend-edit-profile/
@@ -13,5 +13,5 @@ Available Languages
 - Italian by Anja
 
 
-We need help to translate this plugin for community,
-send your translate to dev@dulabs.com
+Translate this plugin for community,
+send your translate to dev@dulabs.com or create pull request

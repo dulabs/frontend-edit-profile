@@ -96,6 +96,10 @@ class fep_widget extends WP_Widget {
 					echo $before_title . $title . $after_title; 
 				};
 	
+				$page_id = get_option('fep_profilepage');
+				$profile_url = get_permalink($page_id);
+				$logout_url = esc_attr(get_option('fep_logouturl'));
+
 				include_once( realpath(dirname(__FILE__)).'/widget_loggedin_form.php');
 		
 				echo $after_widget; //Widget ends printing information

@@ -1,42 +1,51 @@
 === Frontend Edit Profile ===
 Contributors: abdul_ibad, dulabs
 Plugin Name: Frontend Edit Profile
-Plugin URI: http://dulabs.com/frontend-edit-profile-for-wordpress/
-Donate Link: http://dulabs.com/frontend-edit-profile-for-wordpress/
+Plugin URI: http://fep.dulabs.com
+Donate Link: http://fep.dulabs.com
 Tags: profile, pages, posts, frontend
 Requires at least: 3.0
 Tested up to: 3.0
 Stable tag: 1.0
 
-Wordpress plugin to add profile edit to your frontend with shortcode
+Wordpress plugin to add profile information to your frontend with shortcode, no coding required.
 
 == Description ==
 
-Wordpress plugin to add profile edit to your frontend through shortcode, without coding or hacks. Great for membership site.
+Wordpress plugin to add profile information to your frontend through shortcode, without coding or hacks. Great for membership site.
 
-This plugin need your contributes, fork this from 
+Check plugin development through github 
+
 https://github.com/dulabs/frontend-edit-profile
 
 WARNING!
 not all plugins compatible, see our whitelist 
-http://dulabs.com/frontend-edit-profile-for-wordpress/
+
+http://fep.dulabs.com/
+
+Tested on Wordpress 4.0.0
+Please backup before upgrade.
 
 == Installation ==
-
 This section describes how to install the plugin and get it working.
 
 See <a href="http://codex.wordpress.org/Managing_Plugins#Installing_Plugins">WordPress Codex Plugins Documentation</a>
 
-insert [LOGIN] or [EDITPROFILE] to your post or page. 
+Since v1.0.5
+insert [LOGIN_FORM] to login page.
 
-You ready to go!
+insert [PROFILE_FORM] to profile page. 
+
+old version < v1.0.3
+insert [LOGIN] or [EDITPROFILE] to your post or page.
+
+
+and You are ready to go!
 
 using widget:
 
 You need to configure login and register url in setting page.
 
-login url: Your post/page with shortcode
-register url: this is custom register url
 
 == Screenshot ==
 
@@ -44,6 +53,12 @@ register url: this is custom register url
 2. Disable Contact Methods
 
 == Changelog ==
+
+= Version 1.0.5 =
+* Separate between login page and profile page
+* Assign login,logout, and lost password through custom url or page
+* Add After Login Title in widget
+
 
 = Version 1.0.3 =
 * Feature: Widget login form
