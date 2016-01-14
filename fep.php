@@ -385,6 +385,8 @@ class FRONTEND_EDIT_PROFILE{
 	// build profile form
 	function build_form( $data="" ){
 		
+		global $wp_roles;
+		
 		$current_user = wp_get_current_user();
 		
 		$user_id = $current_user->ID;
