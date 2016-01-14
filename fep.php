@@ -142,6 +142,11 @@ class FRONTEND_EDIT_PROFILE{
 		add_option('fep_registerurl','','','yes');
 		add_option('fep_registerpage','','','yes');
 		add_option('fep_profilepage','','','yes');
+		add_option('fep_override_loginurl','off','','yes');
+		add_option('fep_override_lostpasswordurl','off','','yes');
+		add_option('fep_override_registerurl','off','','yes');
+		add_option('fep_override_logouturl','off','','yes');
+	
 	}
 	
 	// initialize settings
@@ -162,6 +167,11 @@ class FRONTEND_EDIT_PROFILE{
 		register_setting('fep_options','fep_registerurl','');
 		register_setting('fep_options','fep_registerpage','');
 		register_setting('fep_options','fep_profilepage','');
+		register_setting('fep_options','fep_override_loginurl','');
+		register_setting('fep_options','fep_override_lostpasswordurl','');
+		register_setting('fep_options','fep_override_registerurl','');
+		register_setting('fep_options','fep_override_logouturl','');
+	
 	}
 	
 	// add contact methods
@@ -177,6 +187,10 @@ class FRONTEND_EDIT_PROFILE{
 
 	// filter login url
 	function login_url( $url ){
+
+		$override = get_option('fep_override_loginurl');
+		if($override != "on") return $url;	
+
 		$fep_url = get_option('fep_loginurl');
 		$fep_loginpage = get_option('fep_loginpage');
 
@@ -197,6 +211,10 @@ class FRONTEND_EDIT_PROFILE{
 	function logout_url( $url ){
 		
 		if(is_admin()) return $url;
+
+		$override = get_option('fep_override_logouturl');
+		
+		if($override != "on") return $url;
 		
 		$fep_url = get_option('fep_logouturl');
 		
@@ -210,6 +228,11 @@ class FRONTEND_EDIT_PROFILE{
 	
 	// filter registration url
 	function registration_url( $url ){
+		
+		$override = get_option('fep_override_registerurl');
+		
+		if($override != "on") return $url;
+
 		$fep_url = get_option('fep_registerurl');
 		$fep_registerpage = get_option('fep_registerpage');
 
@@ -226,6 +249,11 @@ class FRONTEND_EDIT_PROFILE{
 
 	// filter lost password url
 	function lostpassword_url( $url ){
+		
+		$override = get_option('fep_override_lostpasswordurl');
+		
+		if($override != "on") return $url;
+
 		$fep_url = get_option('fep_lostpasswordurl');
 		$fep_lostpasswordpage = get_option('fep_lostpasswordpage');
 
@@ -277,8 +305,20 @@ class FRONTEND_EDIT_PROFILE{
 		
 		$login_form = (get_option('fep_loginform')=="on") ? " checked=\"checked\"" : " ";
 	
-		$loginpage = get_option('fep_loginpage');
+		$override_logouturl = (get_option('fep_override_logouturl')=="on") ? " checked=\"checked\"" : " ";
 
+		$override_loginurl = (get_option('fep_override_loginurl')=="on") ? " checked=\"checked\"" : " ";
+	
+		$loginpage = get_option('fep_loginpage');
+	
+		$override_lostpasswordurl = (get_option('fep_override_lostpasswordurl')=="on") ? " checked=\"checked\"" : " ";
+	
+		$lostpasswordpage = get_option('fep_lostpasswordpage');
+								
+		$override_registerurl = (get_option('fep_override_registerurl')=="on") ? " checked=\"checked\"" : " ";
+
+		$registerpage = get_option('fep_registerpage');
+								
 		$contact_methods = get_option("fep_contact_methods");
 		
 		if(!(is_array($contact_methods))){
@@ -386,7 +426,7 @@ class FRONTEND_EDIT_PROFILE{
 	function build_form( $data="" ){
 		
 		global $wp_roles;
-		
+
 		$current_user = wp_get_current_user();
 		
 		$user_id = $current_user->ID;

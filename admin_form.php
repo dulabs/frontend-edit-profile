@@ -47,8 +47,16 @@
 					<td><input type="checkbox" value="on" id="login_form" name="fep_loginform"<?php echo $login_form;?>/></td>
 				</tr>
 				<tr>
+					<th scope="row"><label for="override_logouturl"><?php _e("Override Logout Url",'fep');?></label></th>
+					<td><input type="checkbox" value="on" id="override_logouturl" name="fep_override_logouturl"<?php echo $override_logouturl;?>/></td>
+				</tr>
+				<tr>
 					<th scope="row"><label for="fep_logouturl"><?php _e("Logout URL",'fep');?></label></th>
 					<td><input type="text" id="fep_logouturl" name="fep_logouturl" value="<?php echo esc_attr(get_option('fep_logouturl'));?>" style="width: 60%;" /></td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="override_loginurl"><?php _e("Override Login Url",'fep');?></label></th>
+					<td><input type="checkbox" value="on" id="override_loginurl" name="fep_override_loginurl"<?php echo $override_loginurl;?>/></td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="fep_loginurl"><?php _e("Login URL",'fep');?></label></th>
@@ -66,13 +74,16 @@
 					</td>
 				</tr>
 				<tr>
+					<th scope="row"><label for="override_lostpasswordurl"><?php _e("Override Lost Password Url",'fep');?></label></th>
+					<td><input type="checkbox" value="on" id="override_lostpasswordurl" name="fep_override_lostpasswordurl"<?php echo $override_lostpasswordurl;?>/></td>
+				</tr>
+				<tr>
 					<th scope="row"><label for="fep_lostpasswordurl"><?php _e("Lost Password URL",'fep');?></label></th>
 					<td>
 						<input type="text" id="fep_lostpasswordurl" name="fep_lostpasswordurl" value="<?php echo esc_attr(get_option('fep_lostpasswordurl'));?>" />
 						<?php _e("or page","fep");?>&nbsp;
 						<select name="fep_lostpasswordpage">
 							<?php 
-								$lostpasswordpage = get_option('fep_lostpasswordpage');
 								foreach($pages as $page):
 									$selected = ($page->ID == $lostpasswordpage) ? "selected=\"selected\"" : "";
 							?>
@@ -82,13 +93,16 @@
 					</td>
 				</tr>
 				<tr>
+					<th scope="row"><label for="override_registerurl"><?php _e("Override Register Url",'fep');?></label></th>
+					<td><input type="checkbox" value="on" id="override_registerurl" name="fep_override_registerurl"<?php echo $override_registerurl;?>/></td>
+				</tr>
+				<tr>
 					<th scope="row"><label for="fep_registerurl"><?php _e("Register URL",'fep');?></label></th>
 					<td>
 						<input type="text" id="fep_registerurl" name="fep_registerurl" value="<?php echo esc_attr(get_option('fep_registerurl'));?>" />
 						<?php _e("or page","fep");?>&nbsp;
 						<select name="fep_registerpage">
 							<?php 
-								$registerpage = get_option('fep_registerpage');
 								foreach($pages as $page):
 									$selected = ($page->ID == $registerpage) ? "selected=\"selected\"" : "";
 							?>
