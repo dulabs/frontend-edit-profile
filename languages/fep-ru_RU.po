@@ -1,0 +1,255 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Frontend Edit Profile\n"
+"POT-Creation-Date: 2014-07-13 08:52+0700\n"
+"PO-Revision-Date: 2015-05-18 22:39+0300\n"
+"Last-Translator: \n"
+"Language-Team: Dymskiy <andrey@dymskiy.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-KeywordsList: __;_e;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../loggedin_form.php:2
+msgid "Your Profile"
+msgstr "Ваш профиль"
+
+#: ../loggedin_form.php:3
+msgid "Logout"
+msgstr "Выход"
+
+#: ../widget.php:6
+msgid "Display login widget on sidebar "
+msgstr "Показать виджет входа в боковой панели"
+
+#: ../widget.php:24
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: ../widget.php:30
+msgid "Show Register Link"
+msgstr "Показывать ссылку на Регистрацию"
+
+#: ../widget.php:35
+msgid "Hide widget when user logged in"
+msgstr "Спрятать если авторизован"
+
+#: ../_form.php:22
+msgid "Name"
+msgstr "Имя"
+
+#: ../_form.php:26 ../login_form.php:4
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: ../_form.php:27
+msgid "Usernames cannot be changed."
+msgstr "Имя пользователя изменить нельзя"
+
+#: ../_form.php:30
+msgid "First Name"
+msgstr "Имя"
+
+#: ../_form.php:35
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: ../_form.php:40
+msgid "Nickname"
+msgstr "Ник"
+
+#: ../_form.php:40 ../_form.php:79
+msgid "(required)"
+msgstr "(обязательно)"
+
+#: ../_form.php:45
+msgid "Display to Public as"
+msgstr "Отображать как"
+
+#: ../_form.php:75
+msgid "Contact Info"
+msgstr "Контакты"
+
+#: ../_form.php:79
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../_form.php:85
+#, php-format
+msgid ""
+"There is a pending change of your e-mail to <code>%1$s</code>. <a href=\"%2$s"
+"\">Cancel</a>"
+msgstr ""
+"Изменение вашего e-mail на <code>%1$s</code>. <a href=\"%2$s\">Отмена</a>"
+
+#: ../_form.php:92
+msgid "Website"
+msgstr "Сайт"
+
+#: ../_form.php:118
+msgid "About Yourself"
+msgstr "О пользователе"
+
+#: ../_form.php:128
+msgid "Biographical Info"
+msgstr "Биография"
+
+#: ../_form.php:130
+msgid ""
+"Share a little biographical information to fill out your profile. This may "
+"be shown publicly."
+msgstr "Напишите немного о себе. Эта информация может отображаться на сайте."
+
+#: ../_form.php:141
+msgid "New Password"
+msgstr "Новый пароль"
+
+#: ../_form.php:141
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave "
+"this blank."
+msgstr ""
+"Если вы хотите поменять пароль, введите новый. Иначе оставьте поле пустым."
+
+#: ../_form.php:144
+msgid "Type your new password again."
+msgstr "Повторите новый пароль"
+
+#: ../_form.php:148
+msgid "Strength indicator"
+msgstr "Индикатор надёжности"
+
+#: ../_form.php:158
+msgid "The password should be at least seven characters long."
+msgstr "Пароль должен состоять как минимум из семи символов."
+
+#: ../_form.php:159
+msgid ""
+"To make it stronger, use upper and lower case letters, numbers and symbols "
+"like ! \" ? $ % ^ &amp; )."
+msgstr ""
+"Чтобы сделать его надёжнее, используйте буквы верхнего и нижнего регистра, "
+"числа и символы наподобие ! \" ? $ % ^ &amp; )."
+
+#: ../_form.php:178
+msgid "Additional Capabilities"
+msgstr "Дополнительные возможности"
+
+#: ../_form.php:197
+msgid "Update Profile"
+msgstr "Обновить профиль"
+
+#: ../fep.php:121
+msgid "Skype"
+msgstr "Skype"
+
+#: ../fep.php:122
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../fep.php:123
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: ../fep.php:124
+msgid "AIM"
+msgstr "AIM"
+
+#: ../fep.php:296
+msgid "<strong>Success</strong>: Profile updated"
+msgstr "<strong>УСПЕШНО</strong>: Профиль обновлен"
+
+#: ../fep.php:358
+msgid "<strong>ERROR</strong>: Empty username"
+msgstr "<strong>ОШИБКА</strong>: Пустое Имя пользователя"
+
+#: ../fep.php:363
+msgid "<strong>ERROR</strong>: Empty password"
+msgstr "<strong>ОШИБКА</strong>: Пустой пароль"
+
+#: ../fep.php:373
+msgid "<strong>ERROR</strong>: Invalid username"
+msgstr "<strong>ОШИБКА</strong>: Неправильное имя пользователя"
+
+#: ../fep.php:376
+msgid "<strong>ERROR</strong>: Incorrect password"
+msgstr "<strong>ОШИБКА</strong>: Неправильный пароль"
+
+#: ../admin_form.php:4
+msgid "General Settings"
+msgstr "Основные настройки"
+
+#: ../admin_form.php:9
+msgid "Show Biographical Info"
+msgstr "Показывать биографию"
+
+#: ../admin_form.php:13
+msgid "Show Password Indicator"
+msgstr "Показывать индикатор надежности"
+
+#: ../admin_form.php:17
+msgid "Show Password Hint"
+msgstr "Показывать подсказку по созданию пароля"
+
+#: ../admin_form.php:21
+msgid "Custom Password Hint"
+msgstr "Ваша подсказка по созданию пароля"
+
+#: ../admin_form.php:32
+msgid "Show Login Form"
+msgstr "Показывать форму авторизации"
+
+#: ../admin_form.php:36
+msgid "Not Logged in Text"
+msgstr "Текст если не авторизован"
+
+#: ../admin_form.php:40
+msgid "Login URL"
+msgstr "URL Входа"
+
+#: ../admin_form.php:44
+msgid "Logout URL"
+msgstr "URL Выхода"
+
+#: ../admin_form.php:48
+msgid "Lost Password URL"
+msgstr "URL Восстановления пароля"
+
+#: ../admin_form.php:52
+msgid "Register URL"
+msgstr "URL Регистрации"
+
+#: ../admin_form.php:57
+msgid "Disable Contact Methods"
+msgstr "Отключить способы связи"
+
+#: ../admin_form.php:58
+msgid "Click to disable contact methods in profile page"
+msgstr "Отметьте ненужные способы связи"
+
+#: ../admin_form.php:79
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: ../login_form.php:6
+msgid "Password"
+msgstr "Пароль"
+
+#: ../login_form.php:8
+msgid "Remember me"
+msgstr "Запомнить меня"
+
+#: ../login_form.php:11
+msgid "Logged me in"
+msgstr "Войти"
+
+#: ../login_form.php:14
+msgid "Don't have account? Register."
+msgstr "Нет учетной записи? Регистрация."
