@@ -1,4 +1,7 @@
-	 
+	 <?php
+	if(!defined("FEP")) exit;
+
+	 ?>
 		<form method="post" action="<?php echo esc_attr(get_option('fep_loginurl'));?>">
 			<input type="hidden" name="fep_login" value="1" />
 		    <p><label for="log"><?php _e('Username','fep');?></label><br /><input type="text" name="log" id="log" value="" size="20" /> </p>

@@ -14,16 +14,15 @@ Wordpress plugin to add profile information to your frontend with shortcode, no 
 
 Wordpress plugin to add profile information to your frontend through shortcode, without coding or hacks. Great for membership site.
 
-Since Version 1.0.5
-You need to separate between login and profile page, See installation.
+= Note =
+Since version 1.0.5, You need to separate between login and profile page, See installation.
 
-Check plugin development through github 
-
+= Development =
+See development update at github
 https://github.com/dulabs/frontend-edit-profile
 
-WARNING!
+= Whitelist =
 not all plugins compatible, see our whitelist 
-
 http://fep.dulabs.com/
 
 Tested on Wordpress 4.0.0
@@ -34,23 +33,28 @@ This section describes how to install the plugin and get it working.
 
 See <a href="http://codex.wordpress.org/Managing_Plugins#Installing_Plugins">WordPress Codex Plugins Documentation</a>
 
+= Shortcode =
 Since v1.0.5
-insert [LOGIN_FORM] to login page.
+shortcode to show login page.
+`[LOGIN_FORM]`
 
-insert [PROFILE_FORM] to profile page. 
+shortcode to show profile page.
+`[PROFILE_FORM]` 
 
-old version < v1.0.3
+= Old Version=
+
+for version < v1.0.3 
+
 insert [LOGIN] or [EDITPROFILE] to your post or page.
-
 
 and You are ready to go!
 
-using widget:
+= Widget = 
 
 You need to configure login and register url in setting page.
 
 
-== Screenshot ==
+== Screenshots ==
 
 1. General Settings
 2. Disable Contact Methods
@@ -61,6 +65,7 @@ You need to configure login and register url in setting page.
 * Separate between login page and profile page
 * Assign login,logout, and lost password through custom url or page
 * Add After Login Title in widget
+[Updated Jan 07, 2016]
 
 
 = Version 1.0.3 =

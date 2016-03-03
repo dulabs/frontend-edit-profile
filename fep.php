@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Frontend Edit Profile
-Version: 1.0.5
+Version: 1.0.6
 Description: Add edit profile to your post or page
 Author: Abdul Ibad
 Author URI: http://ibad.dulabs.com
@@ -12,11 +12,11 @@ License: GPL
 /*Version Check*/
 global $wp_version;
 $exit_msg = "Dude, upgrade your stinkin Wordpress Installation.";
-if(version_compare($wp_version, "2.8", "<")) { exit($exit_msg); }
+if(version_compare($wp_version, "3.0", "<")) { exit($exit_msg); }
 
 define ('FEP','frontend-edit-profile');
 
-define('FEP_VERSION', '1.0.5');
+define('FEP_VERSION', '1.0.6');
 
 define("FEP_URL", WP_PLUGIN_URL . '/frontend-edit-profile/' );
 
@@ -98,7 +98,7 @@ class FRONTEND_EDIT_PROFILE{
 	function curPageURL() {
 	 $pageURL = 'http';
 	 if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-	 $pageURL .= "://";
+	 $pageURL .= "//";
 	 if ($_SERVER["SERVER_PORT"] != "80") {
 	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
 	 } else {
