@@ -3,7 +3,9 @@
  * Security
  */
 
-if(!defined("FEP")) exit;
+if (!defined('FEP')) {
+    exit;
+}
 ?>
 		<div class="fep">
 			<form id="your-profile" action="#fep-message" method="post"<?php do_action('user_edit_form_tag'); ?>>

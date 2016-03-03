@@ -1,5 +1,7 @@
 <?php
-	if(!defined("FEP")) exit;
+    if (!defined('FEP')) {
+        exit;
+    }
 ?>
 <div  class="postbox-container" style="width: 70%">
 
