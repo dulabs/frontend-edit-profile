@@ -84,11 +84,14 @@ class FRONTEND_EDIT_PROFILE{
 
 	// get plugin current url
 	function plugin_url(){
+
+		/* Get path problem in windows 
 		$currentpath = dirname(__FILE__);
 		$siteurl = get_option('siteurl').'/';
 		$plugin_url = str_replace(ABSPATH,$siteurl,$currentpath);
 
-		return $plugin_url;
+		return $plugin_url;*/
+		return plugins_url(basename(dirname(__FILE__))); 
 	}
 
 	//
