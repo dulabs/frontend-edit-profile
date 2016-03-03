@@ -12,9 +12,10 @@ License: GPL
 /*Version Check*/
 global $wp_version;
 
-$exit_msg = "Dude, upgrade your stinkin Wordpress Installation.";
-if(version_compare($wp_version, "3.0", "<")) { exit($exit_msg); }
-
+$exit_msg = 'Dude, upgrade your stinkin Wordpress Installation.';
+if (version_compare($wp_version, '3.0', '<')) {
+    exit($exit_msg);
+}
 
 define('FEP', 'frontend-edit-profile');
 
@@ -465,7 +466,7 @@ class FRONTEND_EDIT_PROFILE
         if (isset($_GET['action'])) {
             $action = strtoupper($_GET['action']);
             switch ($action) {
-                case 'LOGOUT' :
+                case 'LOGOUT':
                     if (is_user_logged_in()) {
                         wp_logout();
                         $redirect_to = !empty($_REQUEST['redirect_to']) ? $_REQUEST['redirect_to'] : get_bloginfo('url').'/wp-login.php?loggedout=true';
@@ -509,10 +510,10 @@ class FRONTEND_EDIT_PROFILE
         if (is_wp_error($user)) {
             $error_code = $user->get_error_code();
             switch (strtoupper($error_code)) {
-                case 'INVALID_USERNAME' :
+                case 'INVALID_USERNAME':
                 $this->wp_error = new WP_ERROR('invalid_username', __('<strong>ERROR</strong>: Invalid username'));
                 break;
-                case 'INCORRECT_PASSWORD' :
+                case 'INCORRECT_PASSWORD':
                 $this->wp_error = new WP_ERROR('incorret_password', __('<strong>ERROR</strong>: Incorrect password'));
                 break;
                 default:
@@ -565,8 +566,6 @@ class FRONTEND_EDIT_PROFILE
             echo '<br /><br />';
             do_action('fep_loginform');
         }
-
-        return;
     }
 
     // login action
