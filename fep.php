@@ -39,35 +39,35 @@ class FRONTEND_EDIT_PROFILE
 
     public function __construct()
     {
-        register_activation_hook(__FILE__, [$this, 'default_settings']);
-        add_action('admin_init', [$this, 'settings_init']);
+        register_activation_hook(__FILE__, array($this, 'default_settings'));
+        add_action('admin_init', array($this, 'settings_init'));
 
-        add_shortcode('LOGIN_FORM', [$this, 'login_shortcode']);
-        add_shortcode('PROFILE_FORM', [$this, 'profile_shortcode']);
+        add_shortcode('LOGIN_FORM', array($this, 'login_shortcode'));
+        add_shortcode('PROFILE_FORM', array($this, 'profile_shortcode'));
 
         // Will remove later
-        add_shortcode('LOGIN', [$this, 'login_shortcode']);
-        add_shortcode('editprofile', [$this, 'profile_shortcode']);
-        add_shortcode('EDITPROFILE', [$this, 'profile_shortcode']);
+        add_shortcode('LOGIN', array($this, 'login_shortcode'));
+        add_shortcode('editprofile', array($this, 'profile_shortcode'));
+        add_shortcode('EDITPROFILE', array($this, 'profile_shortcode'));
 
-        add_action('plugins_loaded', [$this, 'localization_init']);
-        add_action('widgets_init', [$this, '_widget']);
-        add_action('admin_menu', [$this, 'admin_menu']);
-        add_action('wp_print_styles', [$this, 'form_style']);
-        add_action('wp_print_scripts', [$this, 'form_script']);
-        add_action('init', [$this, 'process_login_form']);
+        add_action('plugins_loaded', array($this, 'localization_init'));
+        add_action('widgets_init', array($this, '_widget'));
+        add_action('admin_menu', array($this, 'admin_menu'));
+        add_action('wp_print_styles', array($this, 'form_style'));
+        add_action('wp_print_scripts', array($this, 'form_script'));
+        add_action('init', array($this, 'process_login_form'));
 
         // fep action form
-        add_action('fep_loginform', [$this, 'login_form']);
-        add_action('fep_loggedinform', [$this, 'loggedin_form']);
+        add_action('fep_loginform', array($this, 'login_form'));
+        add_action('fep_loggedinform', array($this, 'loggedin_form'));
 
         // filters
-        add_filter('fep_contact_methods', [$this, 'contact_methods']);
-        add_filter('logout_url', [$this, 'logout_url']);
-        add_filter('login_url', [$this, 'login_url']);
-        add_filter('register_url', [$this, 'registration_url']);
-        add_filter('lostpassword_url', [$this, 'lostpassword_url']);
-        add_filter('user_contactmethods', [$this, 'add_contact_methods']);
+        add_filter('fep_contact_methods', array($this, 'contact_methods'));
+        add_filter('logout_url', array($this, 'logout_url'));
+        add_filter('login_url', array($this, 'login_url'));
+        add_filter('register_url', array($this, 'registration_url'));
+        add_filter('lostpassword_url', array($this, 'lostpassword_url'));
+        add_filter('user_contactmethods', array($this, 'add_contact_methods'));
     }
 
     // localization
@@ -86,11 +86,8 @@ class FRONTEND_EDIT_PROFILE
     // get plugin current url
     public function plugin_url()
     {
-        $currentpath = dirname(__FILE__);
-        $siteurl = get_option('siteurl').'/';
-        $plugin_url = str_replace(ABSPATH, $siteurl, $currentpath);
 
-        return $plugin_url;
+        return plugins_url(basename(dirname(__FILE__))); 
     }
 
     //
@@ -116,10 +113,10 @@ class FRONTEND_EDIT_PROFILE
     // Add menu to admin
     public function admin_menu()
     {
-        $mypage = add_options_page('Frontend Edit Profile', 'Frontend Edit Profile', 'administrator', 'fep', [$this, 'options_page']);
+        $mypage = add_options_page('Frontend Edit Profile', 'Frontend Edit Profile', 'administrator', 'fep', array($this, 'options_page'));
 
-        add_action('admin_print_styles-'.$mypage, [$this, 'admin_style']);
-        add_action('admin_print_scripts-'.$mypage, [$this, 'admin_script']);
+        add_action('admin_print_styles-'.$mypage, array($this, 'admin_style'));
+        add_action('admin_print_scripts-'.$mypage, array($this, 'admin_script'));
     }
 
     // default settings
@@ -287,10 +284,10 @@ class FRONTEND_EDIT_PROFILE
         $fep_contact_methods = get_option('fep_contact_methods');
 
         if (!(is_array($fep_contact_methods))) {
-            $fep_contact_methods = [];
+            $fep_contact_methods = array();
         }
 
-        $new_contact_methods = [];
+        $new_contact_methods = array();
 
         foreach ($contact_methods as $name => $desc) {
             if (!in_array(strtolower($name), $fep_contact_methods)) {
@@ -335,11 +332,11 @@ class FRONTEND_EDIT_PROFILE
         $contact_methods = get_option('fep_contact_methods');
 
         if (!(is_array($contact_methods))) {
-            $contact_methods = [];
+            $contact_methods = array();
         }
 
-        $pages = get_pages(['post_type'   => 'page',
-                            'post_status' => 'publish', ]);
+        $pages = get_pages(array('post_type'   => 'page',
+                            'post_status' => 'publish', ));
 
         include_once realpath(dirname(__FILE__)).'/admin_form.php';
     }
@@ -488,7 +485,7 @@ class FRONTEND_EDIT_PROFILE
         $userlogin = $_POST['log'];
         $userpass = $_POST['pwd'];
         $remember = $_POST['rememberme'];
-        $creds = [];
+        $creds = array();
         $creds['user_login'] = $userlogin;
         $creds['user_password'] = $userpass;
         $creds['remember'] = $remember;

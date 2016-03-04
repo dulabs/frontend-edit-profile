@@ -61,6 +61,13 @@ You need to configure login and register url in setting page.
 
 == Changelog ==
 
+= Version 1.0.6 =
+* added: russian and swedish languages
+* feature: override URL
+* fixed: global wp-roles
+see <a href="https://github.com/dulabs/frontend-edit-profile/pull/6">Development Status</a> 
+[Updated Mar 04, 2016]
+
 = Version 1.0.5 =
 * Separate between login page and profile page
 * Assign login,logout, and lost password through custom url or page
