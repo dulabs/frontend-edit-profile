@@ -15,7 +15,7 @@ if (!defined('FEP')) {
 			<?php endif; ?>
 			<p>
 			<input type="hidden" name="from" value="profile" />
-			<input type="hidden" name="checkuser_id" value="<?php echo $user_ID ?>" />
+			<input type="hidden" name="checkuser_id" value="<?php echo isset($user_ID) ? $user_ID : ''; ?>" />
 			</p>
 
 			<table class="form-table">
