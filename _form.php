@@ -10,12 +10,12 @@ if (!defined('FEP')) {
 		<div class="fep">
 			<form id="your-profile" action="#fep-message" method="post"<?php do_action('user_edit_form_tag'); ?>>
 			<?php wp_nonce_field('update-user_'.$user_id) ?>
-			<?php if ($wp_http_referer) : ?>
+			<?php if (isset($wp_http_referer)) : ?>
 				<input type="hidden" name="wp_http_referer" value="<?php echo esc_url($wp_http_referer); ?>" />
 			<?php endif; ?>
 			<p>
 			<input type="hidden" name="from" value="profile" />
-			<input type="hidden" name="checkuser_id" value="<?php echo $user_ID ?>" />
+			<input type="hidden" name="checkuser_id" value="<?php echo isset($user_ID) ? $user_ID : ''; ?>" />
 			</p>
 
 			<table class="form-table">
