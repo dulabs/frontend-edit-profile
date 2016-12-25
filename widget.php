@@ -4,7 +4,7 @@ class fep_widget extends WP_Widget
     public function fep_widget()
     {
         $widget_ops = ['classname' => 'fep_login', 'description' => __('Display login widget on sidebar ', 'fep')];
-        $this->WP_Widget('fep_widget', 'Frontend Login', $widget_ops);
+        $this->__construct('fep_widget', 'Frontend Login', $widget_ops);
     }
 
     public function form($instance)
