@@ -94,7 +94,7 @@ if (!defined('FEP')) {
 			<table class="form-table">
 			<tr>
 				<th><label for="email"><?php _e('E-mail', 'fep'); ?> <span class="description"><?php _e('(required)', 'fep'); ?></span></label></th>
-				<td><input type="text" name="email" id="email" value="<?php echo esc_attr($profileuser->user_email) ?>" class="regular-text" />
+				<td><input type="text" name="email" id="email" value="<?php echo esc_attr($profileuser->user_email) ?>" class="regular-text" required="required" />
 				<?php
                 $new_email = get_option($current_user->ID.'_new_email');
                 if ($new_email && $new_email != $current_user->user_email) : ?>
