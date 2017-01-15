@@ -1,0 +1,257 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Frontend Edit Profile\n"
+"POT-Creation-Date: 2014-07-13 08:52+0700\n"
+"PO-Revision-Date: 2017-01-15 13:51-0500\n"
+"Last-Translator: Paúl Jácome <ankalago@gmail.com>\n"
+"Language-Team: dulabs <dev@dulabs.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-KeywordsList: __;_e;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../loggedin_form.php:2
+msgid "Your Profile"
+msgstr "Tu perfil"
+
+#: ../loggedin_form.php:3
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: ../widget.php:6
+msgid "Display login widget on sidebar "
+msgstr "widget de pantalla de inicio de sesión en la barra lateral "
+
+#: ../widget.php:24
+msgid "Title:"
+msgstr "Título:"
+
+#: ../widget.php:30
+msgid "Show Register Link"
+msgstr "Mostrar Registro Enlace"
+
+#: ../widget.php:35
+msgid "Hide widget when user logged in"
+msgstr "Ocultar widget cuando el usuario ha iniciado sesión en"
+
+#: ../_form.php:22
+msgid "Name"
+msgstr "Nombre"
+
+#: ../_form.php:26 ../login_form.php:4
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: ../_form.php:27
+msgid "Usernames cannot be changed."
+msgstr "Los nombres de usuario no se pueden cambiar."
+
+#: ../_form.php:30
+msgid "First Name"
+msgstr "Nombre"
+
+#: ../_form.php:35
+msgid "Last Name"
+msgstr "Apellido"
+
+#: ../_form.php:40
+msgid "Nickname"
+msgstr "Apodo"
+
+#: ../_form.php:40 ../_form.php:79
+msgid "(required)"
+msgstr "(necesario)"
+
+#: ../_form.php:45
+msgid "Display to Public as"
+msgstr "Pantalla a Público como"
+
+#: ../_form.php:75
+msgid "Contact Info"
+msgstr "Datos de contacto"
+
+#: ../_form.php:79
+msgid "E-mail"
+msgstr "Correo Electrónico"
+
+#: ../_form.php:85
+#, php-format
+msgid ""
+"There is a pending change of your e-mail to <code>%1$s</code>. <a href=\"%2$s"
+"\">Cancel</a>"
+msgstr ""
+"Hay un cambio pendiente de su correo electrónico a <code>%1$s</code>. <a "
+"href=\"%2$s\">Cancelar</a>"
+
+#: ../_form.php:92
+msgid "Website"
+msgstr "Sitio web"
+
+#: ../_form.php:118
+msgid "About Yourself"
+msgstr "Acerca de ti mismo"
+
+#: ../_form.php:128
+msgid "Biographical Info"
+msgstr "información biográfica"
+
+#: ../_form.php:130
+msgid ""
+"Share a little biographical information to fill out your profile. This may "
+"be shown publicly."
+msgstr ""
+"Compartir un poco de información biográfica en su perfil. Esto puede se "
+"muestra públicamente."
+
+#: ../_form.php:141
+msgid "New Password"
+msgstr "Nueva contraseña"
+
+#: ../_form.php:141
+msgid ""
+"If you would like to change the password type a new one. Otherwise leave "
+"this blank."
+msgstr ""
+"Si desea cambiar la contraseña, escriba una nueva. De lo contrario dejarlo "
+"en blanco."
+
+#: ../_form.php:144
+msgid "Type your new password again."
+msgstr "Escriba la nueva contraseña de nuevo."
+
+#: ../_form.php:148
+msgid "Strength indicator"
+msgstr "Indicador de Fuerza"
+
+#: ../_form.php:158
+msgid "The password should be at least seven characters long."
+msgstr "La contraseña debe ser de al menos siete caracteres."
+
+#: ../_form.php:159
+msgid ""
+"To make it stronger, use upper and lower case letters, numbers and symbols "
+"like ! \" ? $ % ^ &amp; )."
+msgstr ""
+"Para hacerlo más fuerte, usar letras mayúsculas y minúsculas, números y "
+"símbolos como ! \" ? $ % ^ &amp; )."
+
+#: ../_form.php:178
+msgid "Additional Capabilities"
+msgstr "Capacidades adicionales"
+
+#: ../_form.php:197
+msgid "Update Profile"
+msgstr "Actualización del perfil"
+
+#: ../fep.php:121
+msgid "Skype"
+msgstr "Skype"
+
+#: ../fep.php:122
+msgid "Twitter"
+msgstr "Gorjeo"
+
+#: ../fep.php:123
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: ../fep.php:124
+msgid "AIM"
+msgstr "AIM"
+
+#: ../fep.php:296
+msgid "<strong>Success</strong>: Profile updated"
+msgstr "<strong>Éxito</strong>: Perfil Actualizado"
+
+#: ../fep.php:358
+msgid "<strong>ERROR</strong>: Empty username"
+msgstr "<strong>ERROR</strong>: nombre de usuario vacía"
+
+#: ../fep.php:363
+msgid "<strong>ERROR</strong>: Empty password"
+msgstr "<strong>ERROR</strong>: contraseña vacía"
+
+#: ../fep.php:373
+msgid "<strong>ERROR</strong>: Invalid username"
+msgstr "<strong>ERROR</strong>: nombre de usuario no válido"
+
+#: ../fep.php:376
+msgid "<strong>ERROR</strong>: Incorrect password"
+msgstr "<strong>ERROR</strong>: contraseña incorrecta"
+
+#: ../admin_form.php:4
+msgid "General Settings"
+msgstr "Configuración general"
+
+#: ../admin_form.php:9
+msgid "Show Biographical Info"
+msgstr "Mostrar información biográfica"
+
+#: ../admin_form.php:13
+msgid "Show Password Indicator"
+msgstr "Mostrar indicador de contraseña"
+
+#: ../admin_form.php:17
+msgid "Show Password Hint"
+msgstr "Mostrar sugerencia de contraseña"
+
+#: ../admin_form.php:21
+msgid "Custom Password Hint"
+msgstr "Sugerencia de contraseña personalizada"
+
+#: ../admin_form.php:32
+msgid "Show Login Form"
+msgstr "Mostrar Formulario de acceso"
+
+#: ../admin_form.php:36
+msgid "Not Logged in Text"
+msgstr "No conectados en el texto"
+
+#: ../admin_form.php:40
+msgid "Login URL"
+msgstr "URL de acceso"
+
+#: ../admin_form.php:44
+msgid "Logout URL"
+msgstr "URL de cierre de sesión"
+
+#: ../admin_form.php:48
+msgid "Lost Password URL"
+msgstr "URL contraseña perdida"
+
+#: ../admin_form.php:52
+msgid "Register URL"
+msgstr "Registro URL"
+
+#: ../admin_form.php:57
+msgid "Disable Contact Methods"
+msgstr "Desactivar Métodos de contacto"
+
+#: ../admin_form.php:58
+msgid "Click to disable contact methods in profile page"
+msgstr "Haga clic para desactivar métodos de contacto en la página de perfil"
+
+#: ../admin_form.php:79
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: ../login_form.php:6
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../login_form.php:8
+msgid "Remember me"
+msgstr "Recuérdame"
+
+#: ../login_form.php:11
+msgid "Logged me in"
+msgstr "Cerrar sesión"
+
+#: ../login_form.php:14
+msgid "Don't have account? Register."
+msgstr "¿No tiene cuenta? Registro."
